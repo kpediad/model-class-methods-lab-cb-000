@@ -13,6 +13,7 @@ class Captain < ActiveRecord::Base
     binding.pry
     self.joins(boats: {boat_classifications: :classification}).where("classifications.name IN ('Sailboat', ' Motorboat')").distinct
   end
+  
 
   def self.non_sailors
     self.joins(boats: {boat_classifications: :classification}).where.not("classifications.name = 'Sailboat'").distinct
