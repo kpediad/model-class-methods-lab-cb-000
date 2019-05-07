@@ -24,12 +24,10 @@ class Boat < ActiveRecord::Base
   end
 
   def self.sailboats
-    binding.pry
     self.joins(boat_classifications: :classification).where("classifications.name = 'Sailboat'")
   end
 
   def self.with_three_classifications
-    binding.pry
     self.joins(:boat_classifications).group(:name).having("count(name) = ?", 3)
   end
 end
