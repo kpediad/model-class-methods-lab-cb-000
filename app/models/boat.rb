@@ -25,7 +25,7 @@ class Boat < ActiveRecord::Base
 
   def self.sailboats
     binding.pry
-    self.joins(boat_classifications: :classification).where("classifications.name = 'sailboat'")
+    self.joins(boat_classifications: :classification).where("classifications.name = 'Sailboat'")
   end
 
   def self.with_three_classifications
