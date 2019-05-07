@@ -10,11 +10,10 @@ class Captain < ActiveRecord::Base
   end
 
   def self.talented_seafarers
-    binding.pry
     motorboat_captains = self.joins(boats: {boat_classifications: :classification}).where("classifications.name = 'Motorboat'").distinct
+    binding.pry
     self.sailors.joins(motorboat_captains).distinct
   end
-  .where("classifications.name = 'Motorboat'")
 
 
   def self.non_sailors
