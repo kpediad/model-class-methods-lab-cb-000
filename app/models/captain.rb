@@ -9,11 +9,11 @@ class Captain < ActiveRecord::Base
     self.joins(:boats).joins(boat_classifications: :classifications).where("classifications.name = 'sailboat'")
   end
 
-  def talented_seafarers
+  def self.talented_seafarers
     self.self.joins(:boats).joins(boat_classifications: :classifications).where("classifications.name IN ('sailboat', ' motorboat')")
   end
 
-  def non_sailors
+  def self.non_sailors
     self.joins(:boats).joins(boat_classifications: :classifications).where.not("classifications.name = 'sailboat'")
   end
 
